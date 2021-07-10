@@ -41,6 +41,16 @@ app.get('/api/users', (req, res) => {
     res.json(result);
 })
 
+app.get('/api/users/:id', (req, res) => {
+    const {params} = req;
+    const {id} = params || {};
+    const user = data.find(it => it._id === id)
+    res.json({
+        data: user,
+        success: true
+    });
+})
+
 app.post('/api/users', (req, res) => {
     let { body } = req;
     body = {
